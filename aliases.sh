@@ -37,23 +37,7 @@ function path-alias() {
 
 alias sudo="sudo "
 
-function web() {
-    if [ $# -eq 0 ]; then
-        w3m www.google.com
-    else
-        w3m $@
-    fi
-}
-
-alias "xdg-open"="path-alias xdg-open"
-alias o="xdg-open"
-
 alias d="diff"
-
-# vscode
-
-alias code="path-alias code"
-alias co="code"
 
 alias ca="cat"
 alias le="less"
@@ -70,10 +54,6 @@ alias p2="python2"
 alias py2="python2"
 
 alias ifc="ifconfig"
-alias ifco="ifconfig"
-alias ifcon="ifconfig"
-alias ifconf="ifconfig"
-alias ifconfi="ifconfig"
 
 alias m="mv"
 
@@ -232,6 +212,7 @@ function extract() {
 			*.tgz) tar xzf "$fullpath" ;;
 			*.txz) tar Jxvf "$fullpath" ;;
 			*.zip) unzip "$fullpath" ;;
+			*.rar) rar e "$fullpath" ;;
 			*) echo "'$1' cannot be extracted via extract()" && cd .. && ! $didfolderexist && rm -r "$foldername" ;;
 		esac
 	else
