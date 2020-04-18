@@ -8,6 +8,7 @@ unzip
 whois
 w3m
 sshpass
+udev
 docker
 docker-compose
 wireless_tools
