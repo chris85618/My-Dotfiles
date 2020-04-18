@@ -1,4 +1,18 @@
 #!/bin/bash
+function keep-try() {
+    counter=1
+    while : ; do
+        echo "${counter}: "
+        eval $*
+        if [ $? -eq 0 ]; then
+            break;
+        fi
+        sleep 1s
+        counter=$(( $counter + 1 ))
+    done
+    unset counter
+}
+
 function remove-all() {
     sed "${1}" -
 }
@@ -35,11 +49,14 @@ function path-alias() {
     fi
 }
 
+alias cl="clear"
+
+alias sd="sudo "
 alias sudo="sudo "
 
 alias d="diff"
 
-alias ca="cat"
+alias ct="cat"
 alias le="less"
 alias s="sed"
 alias gr="grep"
@@ -88,6 +105,8 @@ alias where=which # sometimes i forget
 
 alias hosts='sudo $EDITOR /etc/hosts'   # yes I occasionally 127.0.0.1 twitter.com ;)
 
+# touch
+alias t="touch"
 
 # ls options: A = include hidden (but not . or ..), F = put `/` after folders, h = byte unit suffixes
 alias lsd='ls -l | grep "^d"' # only directories
