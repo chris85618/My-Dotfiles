@@ -1,0 +1,14 @@
+base
+base-devel
+python
+python-pip
+fzf
+rsync
+unzip
+whois
+w3m
+sshpass
+docker
+docker-compose
+wireless_tools
+wpa_supplicant
