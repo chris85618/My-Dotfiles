@@ -1,0 +1,106 @@
+[core]
+	editor = nvim
+[alias]
+	stat = !git --no-pager diff --stat
+	unstage = reset HEAD --
+	a = add
+	br = branch -vv -a
+	c = commit -sm
+	co = checkout
+	p = pull --rebase --autostash
+	fpush = push --force
+	s = status
+	st = stash
+	stsh = stash
+	stp = stash pop
+	stl = stash list
+	amend = commit --amend
+	ame = commit --amend
+	r = reset
+	rest = reset
+	undocommit = reset HEAD~
+	hreset = reset --hard
+	co = checkout
+	df = !git --no-pager diff --no-pager --color --color-words --abbrev
+	l = !git --no-pager log --color --graph --all --pretty=format:'%Cred%h%C(reset) %C(bold)%s%C(reset) %C(cyan)by%Cblue %an %Creset%C(cyan)in %Creset%Cgreen%cr%C(reset)%C(yellow)%d%Creset'  --abbrev-commit --
+	lg = !git --no-pager log --color --graph --all --pretty=format:'%Cred%h%C(reset) %C(bold)%s%C(reset) %C(cyan)by%Cblue %an %Creset%C(cyan)in %Creset%Cgreen%cr%C(reset)%C(yellow)%d%Creset'  --abbrev-commit --
+	cherrypick = cherry-pick
+	cherry = cherry-pick
+	g = grep -n -P --color
+	rt = rebase --autostash -i
+	re = rebase --edit-todo
+	rc = rebase --continue
+	rs = rebase --skip
+	ra = rebase --abort
+	rbt = rebase --autostash -i
+	rbe = rebase --edit-todo
+	rbc = rebase --continue
+	rbs = rebase --skip
+	rba = rebase --abort
+	purge = "!f(){ git reset --hard && git clean -fd; }; f"
+	gc = !"git gc --prune --aggressive"
+	# Show the diff between the latest commit and the current state
+	d = !"git diff-index --quiet HEAD -- || git --no-pager diff --patch-with-stat"
+	git = !exec git
+[branch]
+	autosetuprebase = always
+[color]
+	ui = auto
+	diff = auto
+[color "diff"]
+	meta = yellow bold
+	commit = green bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+	newMoved = cyan
+	oldMoved = blue
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = "red bold 52"
+	newNormal = "green bold"
+	newHighlight = "green bold 22"
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+# git mergetool
+[merge]
+	tool = vscode
+	renameLimit = 0
+[mergetool]
+	prompt = false
+[mergetool "vscode"]
+	cmd = code -w $MERGED
+# correct typos
+[help]
+	autocorrect = 1
+
+# push easily. http://stackoverflow.com/a/23918418/89484
+[push]
+	followTags = true
+
+# use separate file for username / github token / etc
+[include]
+  path = ~/.gitconfig.local
+[fetch]
+	prune = true
+[diff]
+    # Show blocks of moved text of at least 20 alphanumeric characters differently than adds/deletes
+    # https://blog.github.com/2018-04-05-git-217-released/
+	colorMoved = zebra
+	tool = meld
+	guitool = meld
+[difftool]
+	prompt = false
+[difftool "meld"]
+	cmd = meld "$LOCAL" "$REMOTE"
+[stash]
+	showPatch = true
+[log]
+	date = relative
