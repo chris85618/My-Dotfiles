@@ -1,0 +1,97 @@
+:set whichwrap+=<,>,h,l,[,]
+:set confirm
+:set number
+:set ruler
+:set cursorline
+:set t_Co=256
+:set laststatus=2
+:set ignorecase
+:set smartcase
+:set hlsearch
+:set smarttab
+:set tabstop=4
+:set softtabstop=4
+:set shiftwidth=4
+:set mouse=""
+:set backspace=2
+:set history=1000
+:set incsearch
+:set cursorline
+:set cursorcolumn
+:set nocompatible
+:set incsearch
+:set backspace=indent,eol,start
+:set statusline=[%{expand('%:p')}][%{strlen(&fenc)?&fenc:&enc},\ %{&ff},\ %{strlen(&filetype)?&filetype:'plain'}]%{FileSize()}%{IsBinary()}%=%c,%l/%L\ [%3p%%]
+:set showmode
+:set showcmd
+:set wrap
+:set noautowrite
+:set encoding=utf-8
+:set fileencodings=utf-8,utf-16,big5,gb2312,gbk,gb18030,euc-jp,euc-kr,latin1
+:let g:ycm_autoclose_preview_window_after_completion = 1
+:let g:ycm_autoclose_preview_window_after_insertion = 1
+:inoremap ( ()<Esc>i
+:inoremap " ""<Esc>i
+:inoremap ' ''<Esc>i
+:inoremap [ []<Esc>i
+:inoremap {<CR> {<CR>}<Esc>ko
+:inoremap {{ {}<ESC>i
+:noremap <C-S> <Esc>:w<CR>
+:inoremap <C-S> <Esc>:w<CR>i
+:noremap <C-W><C-W><C-W> <Esc>:q!<CR>
+:noremap! <C-W><C-W><C-W> <Esc>:q!<CR>
+:noremap <C-Q> <Esc>:q<CR>
+:noremap! <C-Q> <Esc>:q<CR>
+:inoremap <C-D> <Esc>ddi
+:inoremap <C-BS> <Esc>dbi
+:inoremap <C-Del> <Esc>dwi<Right>
+:noremap <C-F> <Esc>/
+:noremap! <C-F> <Esc>/
+:noremap <C-T> <Esc>:
+:noremap! <C-T> <Esc>:
+:inoremap <C-U> <Esc>:u<CR>i
+:inoremap <C-R> <Esc>:redo<CR>i
+:noremap <C-Left> <Left><Left><Left><Left>
+:noremap! <C-Left> <Left><Left><Left><Left>
+:noremap <C-Right> <Right><Right><Right><Right>
+:noremap! <C-Right> <Right><Right><Right><Right>
+:noremap <C-Down> <Esc><C-D>
+:noremap! <C-Down> <Esc><C-D>i
+:noremap <C-Up> <Esc><C-U>
+:noremap! <C-Up> <Esc><C-U>i
+:inoremap <C-C> <expr> <Esc>v . input()
+:inoremap <C-V> <Esc><Right>Pi<Right>
+:syntax enable
+:startinsert
+:colorscheme ron
+:hi LineNr cterm=bold ctermfg=LightGrey ctermbg=NONE
+:hi CursorColumn cterm=none ctermfg=NONE ctermbg=DarkGrey
+:hi Search cterm=reverse ctermbg=NONE ctermfg=LightMagenta
+
+if has("multi_byte")
+    
+else
+    echoerr "If +multi_byte is not included, you should compile Vim with big features."
+endif
+
+function IsBinary()
+    if (&binary == 0)
+        return ""
+    else
+        return "[Binary]"
+    endif
+endfunction
+
+function FileSize()
+    let bytes = getfsize(expand("%:p"))
+    if bytes <= 0
+        return "[Empty]"
+    endif
+    if bytes < 1024
+        return "[" . bytes . "B]"
+    elseif bytes < 1048576
+        return "[" . (bytes / 1024) . "KB]"
+    else
+        return "[" . (bytes / 1048576) . "MB]"
+    endif
+endfunction

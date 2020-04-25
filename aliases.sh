@@ -133,7 +133,9 @@ alias diskspace_report="df -P -kHl"
 alias g="git"
 alias tk="gitk"
 alias tkst='gitk $(for index in $(seq 0 $(( $(git stash list | wc -l)-1 ))); do echo "stash@{${index}}"; done)'
-alias v="vim"
+alias v="nvim"
+alias vi="nvim"
+alias vim="nvim"
 alias n="nano"
 alias ungz="gunzip -k"
 

@@ -1,6 +1,8 @@
 # Editor
-# nano as default
-export EDITOR=$(which nano || echo 'nano')
+# vim as default
+export EDITOR=$(which vim || echo 'vim')
+
+alias e=${EDITOR}
 
 alias code="path-alias code"
 alias co="code"
