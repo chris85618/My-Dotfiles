@@ -5,7 +5,9 @@ docker
 docker-compose
 fzf
 python
+python-pillow
 python-pip
+python-selenium
 rsync
 sshpass
 udev
