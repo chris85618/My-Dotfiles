@@ -1,3 +1,4 @@
+autojump-git
 base
 base-devel
 chromedriver
