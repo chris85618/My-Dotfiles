@@ -25,6 +25,7 @@ wine-gecko
 wine-mono
 system-config-printer
 cups
+cups-pdf
 ghostscript
 gsfonts
 lib32-gnutls
