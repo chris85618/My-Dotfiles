@@ -3,6 +3,7 @@ base
 base-devel
 bash-completion
 chromedriver
+dex
 docker
 docker-compose
 fzf
@@ -18,3 +19,15 @@ w3m
 whois
 wireless_tools
 wpa_supplicant
+wine
+winetricks
+wine-gecko
+wine-mono
+system-config-printer
+cups
+ghostscript
+gsfonts
+lib32-gnutls
+lib32-krb5
+lib32-mpg123
+lib32-libcups
