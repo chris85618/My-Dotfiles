@@ -21,6 +21,7 @@ wireless_tools
 wpa_supplicant
 wine
 winetricks
+zenity
 wine-gecko
 wine-mono
 system-config-printer
