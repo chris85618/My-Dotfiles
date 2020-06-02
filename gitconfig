@@ -26,6 +26,10 @@
 	lg = !git --no-pager log --color --graph --all --pretty=format:'%Cred%h%C(reset) %C(bold)%s%C(reset) %C(cyan)by%Cblue %an %Creset%C(cyan)in %Creset%Cgreen%cr%C(reset)%C(yellow)%d%Creset'  --abbrev-commit --
 	cherrypick = cherry-pick
 	cherry = cherry-pick
+	cp = cherry-pick
+	cpc = cherry-pick --continue
+	cps = cherry-pick --skip
+	cpa = cherry-pick --abort
 	g = grep -n -P --color
 	rt = rebase --autostash -i
 	re = rebase --edit-todo
