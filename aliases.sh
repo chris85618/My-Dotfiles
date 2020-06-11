@@ -75,6 +75,8 @@ alias py2="python2"
 
 alias sc="python3 -i ~/.setup/chrome_robot.py"
 
+alias mk="make"
+
 alias ifc="ifconfig"
 
 alias m="mv"
