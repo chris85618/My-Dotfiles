@@ -1,5 +1,16 @@
 #!/bin/bash
 
+function new_alias() {
+    alias_name=$1
+    real_command=$2
+    src_cmdname=${real_command}
+
+    alias "${alias_name}"="${real_command}"
+    if complete -p ${src_cmdname} 1>/dev/null 2>/dev/null; then
+        _completion_loader ${src_cmdname}
+        complete -o bashdefault -o default -o nospace -F _${src_cmdname} ${alias_name}
+    fi
+}
 
 function keep-try() {
     counter=1
@@ -51,73 +62,72 @@ function path-alias() {
     fi
 }
 
-alias cl="clear"
+new_alias cl "clear"
 
-alias sd="sudo "
-alias sudo="sudo "
+new_alias sd "sudo "
+new_alias sudo "sudo "
 
-alias d="diff"
+new_alias d "diff"
 
-alias ct="cat"
-alias le="less"
-alias less="less -r"
-alias s="sed"
-alias ss="source"
-alias gr="grep"
-alias gra="grep -rn"
-alias gerp="grep"
-alias p="pwd"
+new_alias ct "cat"
+new_alias le "less"
+new_alias less "less -r"
+new_alias s "sed"
+new_alias ss "source"
+new_alias gr "grep"
+new_alias gra "grep -rn"
+new_alias gerp "grep"
+new_alias p "pwd"
 
-alias py="python3"
-alias p3="python3"
-alias py3="python3"
-alias p2="python2"
-alias py2="python2"
+new_alias py "python3"
+new_alias p3 "python3"
+new_alias py3 "python3"
+new_alias p2 "python2"
+new_alias py2 "python2"
 
-alias sc="python3 -i ~/.setup/chrome_robot.py"
+new_alias sc "python3 -i ~/.setup/chrome_robot.py"
 
-alias mk="make"
+new_alias mk "make"
 
-alias ifc="ifconfig"
+new_alias ifc "ifconfig"
 
-alias m="mv"
+new_alias m "mv"
 
-alias cp="cp -i"                                                # Confirm before overwriting something
-alias df='df -h'                                                # Human-readable sizes
-alias free='free -m'                                            # Show sizes in MB
+new_alias cp "cp -i"                                                # Confirm before overwriting something
+new_alias df 'df -h'                                                # Human-readable sizes
+new_alias free 'free -m'                                            # Show sizes in MB
 
-alias ls="ls -F --color=always"
+new_alias ls "ls -F --color=always"
 
-alias ll="ls -alF --color=always"
-alias l="ls --color=always"
+new_alias ll "ls -alF --color=always"
+new_alias l "ls --color=always"
 
-alias c="cd"
-alias ..="cd .."
-alias cd..="cd .."
-alias ...="cd ../.."
-alias ....="cd ../../.."
-alias .....="cd ../../../.."
-alias ......="cd ../../../../.."
-alias .......="cd ../../../../../.."
-alias ~="cd ~" # `cd` is probably faster to type though
-alias -- -="cd -"
+new_alias c "cd"
+new_alias .. "cd .."
+new_alias cd.. "cd .."
+new_alias ... "cd ../.."
+new_alias .... "cd ../../.."
+new_alias ..... "cd ../../../.."
+new_alias ...... "cd ../../../../.."
+new_alias ....... "cd ../../../../../.."
+new_alias '~' "cd ~" # `cd` is probably faster to type though
 
 # mv, rm, cp
-alias mv='mv -v'
-alias rm='rm -i -v'
-alias cp='cp -v'
+new_alias mv 'mv -v'
+new_alias rm 'rm -i -v'
+new_alias cp 'cp -v'
 
-alias chmox='chmod -x'
+new_alias chmox 'chmod -x'
 
-alias where=which # sometimes i forget
+new_alias where which # sometimes i forget
 
-alias hosts='sudo $EDITOR /etc/hosts'   # yes I occasionally 127.0.0.1 twitter.com ;)
+new_alias hosts 'sudo $EDITOR /etc/hosts'   # yes I occasionally 127.0.0.1 twitter.com ;)
 
 # touch
-alias t="touch"
+new_alias t "touch"
 
 # ls options: A = include hidden (but not . or ..), F = put `/` after folders, h = byte unit suffixes
-alias lsd='ls -l | grep "^d"' # only directories
+new_alias lsd 'ls -l | grep "^d"' # only directories
 #    `la` defined in .functions
 ###
 
@@ -126,30 +136,30 @@ alias lsd='ls -l | grep "^d"' # only directories
 ###
 # GIT STUFF
 
-alias push="git push"
+new_alias push "git push"
 
 # Undo a `git push`
-alias undopush="git push -f origin HEAD^:master"
+new_alias undopush "git push -f origin HEAD^:master"
 
 # git root
-alias gr='[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
-alias master="git checkout master"
+new_alias gr '[ ! -z `git rev-parse --show-cdup` ] && cd `git rev-parse --show-cdup || pwd`'
+new_alias master "git checkout master"
 
-alias diskspace_report="df -P -kHl"
+new_alias diskspace_report "df -P -kHl"
 
 # Shortcuts
-alias g="git"
-alias tk="gitk"
-alias tkl="gitk"
-alias kt="gitk"
-alias klt="gitk"
-alias tkst='gitk $(for index in $(seq 0 $(( $(git stash list | wc -l)-1 ))); do echo "stash@{${index}}"; done)'
-alias ktst='tkst'
-alias v="nvim"
-alias vi="nvim"
-alias vim="nvim"
-alias n="nano"
-alias ungz="gunzip -k"
+new_alias g "git"
+new_alias tk "gitk"
+new_alias tkl "gitk"
+new_alias kt "gitk"
+new_alias klt "gitk"
+new_alias tkst 'gitk $(for index in $(seq 0 $(( $(git stash list | wc -l)-1 ))); do echo "stash@{${index}}"; done)'
+new_alias ktst 'tkst'
+new_alias v "nvim"
+new_alias vi "nvim"
+new_alias vim "nvim"
+new_alias n "nano"
+new_alias ungz "gunzip -k"
 
 # Create a new directory and enter it
 function md() {
