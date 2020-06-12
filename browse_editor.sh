@@ -1,6 +1,6 @@
 # Editor
 # neovim as default
-export EDITOR=$(which nvim || echo 'nvim')
+export EDITOR=$(which nano || echo 'nano')
 
 alias e=${EDITOR}
 
