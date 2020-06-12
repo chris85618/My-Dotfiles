@@ -62,6 +62,7 @@ alias ct="cat"
 alias le="less"
 alias less="less -r"
 alias s="sed"
+alias ss="source"
 alias gr="grep"
 alias gra="grep -rn"
 alias gerp="grep"
@@ -139,7 +140,9 @@ alias diskspace_report="df -P -kHl"
 # Shortcuts
 alias g="git"
 alias tk="gitk"
+alias tkl="gitk"
 alias kt="gitk"
+alias klt="gitk"
 alias tkst='gitk $(for index in $(seq 0 $(( $(git stash list | wc -l)-1 ))); do echo "stash@{${index}}"; done)'
 alias ktst='tkst'
 alias v="nvim"
