@@ -7,6 +7,7 @@
 	br = branch -vv -a
 	c = commit -sm
 	co = checkout
+	cob = checkout -b
 	p = pull --rebase --autostash
 	fpush = push --force
 	s = status
