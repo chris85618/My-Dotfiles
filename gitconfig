@@ -5,6 +5,8 @@
 	unstage = reset HEAD --
 	a = add
 	br = branch -vv -a
+	db = branch -d
+	Db = branch -D
 	brd = branch -d
 	brfd = branch -D
 	c = commit -sm
