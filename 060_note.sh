@@ -1,6 +1,10 @@
 #!/bin/bash
 NOTE=$HOME/.setup/note.txt
 
+if [ ! -f ${NOTE} ]; then
+    touch ${NOTE}
+fi
+
 function note() {
     if [ $# -eq 1 ]; then
         update_ip ${1}
