@@ -62,6 +62,7 @@ class Chromedriver(webdriver.Chrome):
     def __init__(self, *args, chrome_options=None, **kwargs):
         if chrome_options is None:
             chrome_options = Options()
+        chrome_options.add_argument('--no-sandbox')
         chrome_options.add_argument('--ignore-certificate-errors')
         chrome_options.add_argument('--start-maximized')
         chrome_options.add_argument('--disable-infobars')
@@ -71,17 +72,29 @@ class Chromedriver(webdriver.Chrome):
     def screenshot_all(self, filename=DEFAULT_SCREENSHOT_TARGET):
         MySelenium.screenshot_all(self, filename)
 
-if __name__ == "__main__":
-    options = Options()
-    options.add_argument('--no-sandbox')
-    browser = Chromedriver(chrome_options=options)
+def open_webs(*sites):
+    browser = Chromedriver()
+    print(sites)
 
-    if len(sys.argv) > 1:
-        sites = sys.argv[1:]
-        handle = browser.window_handles[0]
-        for link in sites:
-            browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + 't')
-            browser.get(link)
-        browser.switch_to_window(handle)
+    handle = browser.window_handles[0]
+
+    if len(sites) >= 1:
+        link = sites[0]
+        browser.get(link)
+
+    for link in sites[1:]:
+        browser.execute_script("window.open('{url}');".format(url=link))
+        # browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + 't')
+
+    browser.switch_to_window(handle)
 
     print('>>>> User variable "browser" to control the browser. <<<<')
+
+
+if __name__ == "__main__":
+    if len(sys.argv) > 1:
+        sites = sys.argv[1:]
+    else:
+        sites = []
+
+    open_webs(*sites)
