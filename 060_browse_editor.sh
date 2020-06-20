@@ -1,3 +1,4 @@
+#!/bin/bash
 # Editor
 # neovim as default
 export EDITOR=$(which nano || echo 'nano')

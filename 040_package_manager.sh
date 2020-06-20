@@ -1,3 +1,4 @@
+#!/bin/bash
 alias "package-intall"="yay-install"
 alias "package-remove"="yay-remove"
 alias "package-upgrade"="pacman-update --needed pacman && yay-upgrade"

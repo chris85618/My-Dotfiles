@@ -1,3 +1,4 @@
+#!/bin/bash
 SSH_DIR=${HOME}/.setup/ssh_links
 
 function link() {

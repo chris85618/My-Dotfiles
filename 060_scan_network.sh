@@ -1,4 +1,4 @@
-
+#!/bin/bash
 ip_range="192.168.1"
 
 function ping-scan() {
