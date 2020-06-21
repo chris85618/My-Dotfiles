@@ -7,6 +7,7 @@ dex
 docker
 docker-compose
 fzf
+google-chrome
 python
 python-pillow
 python-pip
