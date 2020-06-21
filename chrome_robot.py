@@ -59,14 +59,14 @@ RemoteWebDriver.WebDriver = MySelenium
 
 
 class Chromedriver(webdriver.Chrome):
-    def __init__(self, *args, chrome_options=None, **kwargs):
-        if chrome_options is None:
-            chrome_options = Options()
-        chrome_options.add_argument('--no-sandbox')
-        chrome_options.add_argument('--ignore-certificate-errors')
-        chrome_options.add_argument('--start-maximized')
-        chrome_options.add_argument('--disable-infobars')
-        super().__init__(*args, chrome_options=chrome_options, **kwargs)
+    def __init__(self, *args, options=None, **kwargs):
+        if options is None:
+            options = Options()
+        options.add_argument('--no-sandbox')
+        options.add_argument('--ignore-certificate-errors')
+        options.add_argument('--start-maximized')
+        options.add_argument('--disable-infobars')
+        super().__init__(*args, options=options, **kwargs)
         atexit.register(self.quit)
 
     def screenshot_all(self, filename=DEFAULT_SCREENSHOT_TARGET):
@@ -74,19 +74,21 @@ class Chromedriver(webdriver.Chrome):
 
 def open_webs(*sites):
     browser = Chromedriver()
-    print(sites)
 
     handle = browser.window_handles[0]
 
-    if len(sites) >= 1:
-        link = sites[0]
-        browser.get(link)
+    is_first_tab = True
 
-    for link in sites[1:]:
-        browser.execute_script("window.open('{url}');".format(url=link))
+    for link in sites:
+        if is_first_tab:
+            is_first_tab = False
+            browser.get(link)
+        else:
+            browser.execute_script("window.open('{url}');".format(url=link))
+        print(f'Open "{link}"')
         # browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + 't')
 
-    browser.switch_to_window(handle)
+    browser.switch_to.window(handle)
 
     print('>>>> User variable "browser" to control the browser. <<<<')
 
