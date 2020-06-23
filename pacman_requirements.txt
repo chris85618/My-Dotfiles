@@ -18,17 +18,12 @@ udev
 unzip
 w3m
 whois
-wireless_tools
-wpa_supplicant
 wine
 winetricks
-zenity
 wine-gecko
-wine-mono
 system-config-printer
 cups
 cups-pdf
-ghostscript
 gsfonts
 lib32-gnutls
 lib32-krb5
