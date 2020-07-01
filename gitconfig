@@ -11,6 +11,7 @@
 	brfd = branch -D
 	c = commit -sm
 	co = checkout
+	cc = !"git commit --no-verify -sm \"$(LANG=en.US date +'%Y.%m.%d %T')\""
 	newbranch = checkout -b
 	nb = checkout -b
 	cob = checkout -b
