@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+# -*- coding: UTF-8 -*-
+
 import os
 import sys
 import io
@@ -26,7 +28,12 @@ class MySelenium(RemoteWebDriver.WebDriver):
         total_height = browser.execute_script("return document.documentElement.scrollHeight")
         window_height = browser.execute_script("return document.documentElement.clientHeight")
 
-        browser.set_window_size(width=total_width + (total_width - browser.execute_script("return document.documentElement.clientWidth")), height=browser.get_window_size()['height'])
+        browser.set_window_size(
+            width=total_width +
+            (
+                total_width -
+                browser.execute_script("return document.documentElement.clientWidth")),
+            height=browser.get_window_size()['height'])
 
         result = Image.new('RGB', (total_width, total_height))
 
@@ -55,6 +62,7 @@ class MySelenium(RemoteWebDriver.WebDriver):
         with open(filename, 'wb') as target_file:
             result.save(target_file)
 
+
 RemoteWebDriver.WebDriver = MySelenium
 
 
@@ -71,6 +79,7 @@ class Chromedriver(webdriver.Chrome):
 
     def screenshot_all(self, filename=DEFAULT_SCREENSHOT_TARGET):
         MySelenium.screenshot_all(self, filename)
+
 
 def open_webs(*sites):
     browser = Chromedriver()
@@ -92,6 +101,7 @@ def open_webs(*sites):
 
     print('>>>> User variable "browser" to control the browser. <<<<')
     return browser
+
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
