@@ -1,11 +1,9 @@
 #!/bin/bash
-ip_range="192.168.1"
-
 function ping-scan() {
     if [ $# -ne 0 ]; then
         ip_prefix="$1"
     else
-        ip_prefix=ip_range
+        ip_prefix=iprange
     fi
 
     for ip_seg in $(
