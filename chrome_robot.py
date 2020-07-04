@@ -91,7 +91,7 @@ def open_webs(*sites):
     browser.switch_to.window(handle)
 
     print('>>>> User variable "browser" to control the browser. <<<<')
-
+    return browser
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
@@ -99,4 +99,4 @@ if __name__ == "__main__":
     else:
         sites = []
 
-    open_webs(*sites)
+    browser = open_webs(*sites)
