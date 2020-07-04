@@ -15,6 +15,7 @@ dex
 diffutils
 docker
 docker-compose
+figlet
 fzf
 google-chrome
 gsfonts
