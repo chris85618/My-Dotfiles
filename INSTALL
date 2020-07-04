@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# Install 'git'
+pacman -Qi git 1>/dev/null 2>/dev/null || sudo pacman -S --noconfirm --needed git
+
+# Install 'yay'
+    # Check whether 'yay' has been installed
+pacman -Qi yay 1>/dev/null 2>/dev/null
+if [ $? -ne 0 ]
+then
+    pacman -Qi base-devel 1>/dev/null 2>/dev/null || sudo pacman -S --noconfirm --needed base-devel
+    git clone -- https://aur.archlinux.org/yay.git /tmp/yay
+    pushd /tmp/yay
+    makepkg -si
+    popd
+fi
+
+DOTFILES_DIRNAME=.setup
+DOTFILES_PATH=~/${DOTFILES_DIRNAME}
+# Clone the dotfiles into ${DOTFILES_PATH}
+if [ ! -d ${DOTFILES_PATH} ]
+then
+    git clone -- https://github.com/chris85618/My-Dotfile.git ${DOTFILES_PATH}
+fi
+cat ${DOTFILES_PATH}/pacman_requirements.txt | yay -S --needed --noconfirm -
+
+# Enable the dotfile@home
+dotfile_at_home_dirname=${DOTFILES_PATH}/dotfile@home
+for file in ${dotfile_at_home_dirname}/*
+do
+    linkpath="${HOME}/.$(echo ${file} | sed 's:.*/::g')"
+    ln -is ${file} ${linkpath}
+done
+unset file
+unset dotfile_at_home_dirname
+unset linkpath
+unset DOTFILES_DIRNAME
+unset DOTFILES_PATH
