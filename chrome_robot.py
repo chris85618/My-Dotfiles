@@ -73,12 +73,12 @@ RemoteWebDriver.WebDriver = MySelenium
 
 
 class Chromedriver(webdriver.Chrome):
-    def __init__(self, *args, chrome_options=Options(), **kwargs):
-        chrome_options.add_argument('--no-sandbox')
-        chrome_options.add_argument('--ignore-certificate-errors')
-        chrome_options.add_argument('--start-maximized')
-        chrome_options.add_argument('--disable-infobars')
-        super().__init__(*args, chrome_options=chrome_options, **kwargs)
+    def __init__(self, *args, options=Options(), **kwargs):
+        options.add_argument('--no-sandbox')
+        options.add_argument('--ignore-certificate-errors')
+        options.add_argument('--start-maximized')
+        options.add_argument('--disable-infobars')
+        super().__init__(*args, options=options, **kwargs)
         atexit.register(self.quit)
 
     def screenshot_all(self, filename=DEFAULT_SCREENSHOT_TARGET):
