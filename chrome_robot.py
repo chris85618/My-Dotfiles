@@ -109,8 +109,8 @@ def open_webs(*sites):
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
-        sites = sys.argv[1:]
+        my_sites = sys.argv[1:]
     else:
-        sites = []
+        my_sites = []
 
-    browser = open_webs(*sites)
+    browser = open_webs(*my_sites)
