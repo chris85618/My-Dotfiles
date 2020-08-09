@@ -36,3 +36,6 @@ unset dotfile_at_home_dirname
 unset linkpath
 unset DOTFILES_DIRNAME
 unset DOTFILES_PATH
+
+# Start 'PlantUML' server
+docker run -d --restart=always --p 8080:8080 plantuml/plantuml-server
