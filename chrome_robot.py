@@ -93,11 +93,16 @@ def open_webs(*sites):
     is_first_tab = True
 
     for link in sites:
-        if is_first_tab:
-            is_first_tab = False
-            browser.get(link)
-        else:
-            browser.execute_script("window.open('{url}');".format(url=link))
+        try:
+            if is_first_tab:
+                browser.get(link)
+                is_first_tab = False
+            else:
+                browser.execute_script("window.open('{url}');".format(url=link))
+        except KeyboardInterrupt:
+            raise
+        except Exception:
+            continue
         print(f'Open "{link}"')
         # browser.find_element_by_tag_name('body').send_keys(Keys.CONTROL + 't')
 
