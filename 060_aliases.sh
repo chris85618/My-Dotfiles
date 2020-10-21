@@ -54,6 +54,7 @@ export MANPAGER="less -X"
 
 alias hex="python3 $HOME/.setup/to_hex.py"
 
+alias -- -='cd -'
 new_alias cl "clear"
 
 new_alias sd "sudo "
