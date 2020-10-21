@@ -1,11 +1,11 @@
 Your Todo List:
 [ ] * Add Copy&Paste aliases to vim
 [ ] * Add autocomplete, formatter, and linter to vim
-    *# C
-	*# C++
-	*# Python
+[ ] *# C
+[ ] *# C++
+[ ] *# Python
 [ ] * Add support for shell alias, "sc" to open website without "http/https" keyword.
 [ ] * Add markdown support to note module & todo module
-    *# Keep the string replace feature
-	*# note.txt -> note.md
-	*# todo.txt -> todo.md
+[ ] *# Keep the string replace feature
+[ ] *# note.txt -> note.md
+[ ] *# todo.txt -> todo.md
