@@ -20,6 +20,7 @@
 :set cursorcolumn
 :set nocompatible
 :set incsearch
+:filetype indent on
 :set backspace=indent,eol,start
 :set statusline=[%{expand('%:p')}][%{strlen(&fenc)?&fenc:&enc},\ %{&ff},\ %{strlen(&filetype)?&filetype:'plain'}]%{FileSize()}%{IsBinary()}%=%c,%l/%L\ [%3p%%]
 :set showmode
