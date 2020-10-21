@@ -1,4 +1,4 @@
-:set whichwrap+=<,>,h,l,[,]
+:set whichwrap=b,s,h,l,<,>,[,]
 :set confirm
 :set number
 :set ruler
@@ -63,6 +63,7 @@
 :noremap! <C-Up> <Up><Up><Up><Up><Up>
 ":inoremap <C-C> <expr> <Esc>v . input()
 ":inoremap <C-V> <Right><Esc>P<Right>i
+:filetype plugin on
 :syntax enable
 :startinsert
 :colorscheme ron
