@@ -61,8 +61,8 @@
 :noremap! <C-Down> <Down><Down><Down><Down><Down>
 :noremap <C-Up> <Up><Up><Up><Up><Up>
 :noremap! <C-Up> <Up><Up><Up><Up><Up>
-:inoremap <C-C> <expr> <Esc>v . input()
-:inoremap <C-V> <Right><Esc>P<Right>i
+":inoremap <C-C> <expr> <Esc>v . input()
+":inoremap <C-V> <Right><Esc>P<Right>i
 :syntax enable
 :startinsert
 :colorscheme ron
