@@ -43,22 +43,23 @@
 :noremap <C-Q> <Esc>:q<CR>
 :noremap! <C-Q> <Esc>:q<CR>
 :inoremap <C-D> <Esc>ddi
-:inoremap <C-BS> <Right><Esc>dbi  
-:inoremap <C-Del> <Right><Esc>dwi
+" <C-BS>  invalid, the following <C-H> just means <C-BS>
+:inoremap <C-H> <C-W>
+:inoremap <C-Del> <space><Esc>ce
 :noremap <C-F> <Esc>/
 :noremap! <C-F> <Esc>/
 :noremap <C-T> <Esc>:
 :noremap! <C-T> <Esc>:
 :inoremap <C-U> <Esc>:u<CR>i
 :inoremap <C-R> <Esc>:redo<CR>i
-:noremap <C-Left> <Left><Left><Left><Left>
-:noremap! <C-Left> <Left><Left><Left><Left>
-:noremap <C-Right> <Right><Right><Right><Right>
-:noremap! <C-Right> <Right><Right><Right><Right>
-:noremap <C-Down> <Down><Down><Down><Down>
-:noremap! <C-Down> <Down><Down><Down><Down>
-:noremap <C-Up> <Up><Up><Up><Up>
-:noremap! <C-Up> <Up><Up><Up><Up>
+:noremap <C-Left> <C-S-Left>
+:noremap! <C-Left> <C-S-Left>
+:noremap <C-Right> <C-S-Right>
+:noremap! <C-Right> <C-S-Right>
+:noremap <C-Down> <Down><Down><Down><Down><Down>
+:noremap! <C-Down> <Down><Down><Down><Down><Down>
+:noremap <C-Up> <Up><Up><Up><Up><Up>
+:noremap! <C-Up> <Up><Up><Up><Up><Up>
 :inoremap <C-C> <expr> <Esc>v . input()
 :inoremap <C-V> <Right><Esc>P<Right>i
 :syntax enable
