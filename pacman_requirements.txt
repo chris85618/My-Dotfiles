@@ -32,6 +32,7 @@ python-pillow
 python-pip
 python-selenium
 rsync
+screen
 sshpass
 sudo
 system-config-printer
