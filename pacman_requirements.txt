@@ -19,6 +19,7 @@ figlet
 fzf
 google-chrome
 gsfonts
+iputils
 lib32-gnutls
 lib32-krb5
 lib32-libcups
