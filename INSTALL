@@ -25,14 +25,15 @@ fi
 cat ${DOTFILES_PATH}/pacman_requirements.txt | yay -S --needed --noconfirm -
 
 # Enable the dotfile@home
-dotfile_at_home_dirname=${DOTFILES_PATH}/dotfile@home
-for file in ${dotfile_at_home_dirname}/*
+link_dirname="${DOTFILES_PATH}/configs/symbolic_link"
+for file in $(find ${link_dirname} -type f)
 do
-    linkpath="${HOME}/.$(echo ${file} | sed 's:.*/::g')"
+    filepath="$(echo ${file} | sed "s:${HOME}:~:g")"
+    linkpath="$(echo ${file} | sed "s:${link_dirname}:${HOME}:g")"
     ln -is ${file} ${linkpath}
 done
 unset file
-unset dotfile_at_home_dirname
+unset link_dirname
 unset linkpath
 unset DOTFILES_DIRNAME
 unset DOTFILES_PATH
