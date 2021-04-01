@@ -26,7 +26,11 @@ cat ${DOTFILES_PATH}/pacman_requirements.txt | yay -S --needed --noconfirm -
 
 # Enable the dotfile@home
 link_dirname="${DOTFILES_PATH}/configs/home"
-for file in $(find ${link_dirname} -type f)
+for file in $(find ${link_dirname} -type d)
+do
+    mkdir -p $(echo ${file} | sed "s:${link_dirname}:${HOME}:g")
+done
+for file in $(find ${link_dirname} -type f ! -name .gitkeep)
 do
     filepath="$(echo ${file} | sed "s:${HOME}:~:g")"
     linkpath="$(echo ${file} | sed "s:${link_dirname}:${HOME}:g")"
