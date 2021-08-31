@@ -49,3 +49,6 @@ wine-gecko
 winetricks
 xdg-utils
 yay
+
+obsidian
+gcalcli
