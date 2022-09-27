@@ -12,6 +12,7 @@ code
 coreutils
 cups
 cups-pdf
+debtap
 dex
 diffutils
 dnsutils
@@ -35,6 +36,7 @@ python
 python-pillow
 python-pip
 python-selenium
+rpmextract
 rsync
 screen
 sshpass
