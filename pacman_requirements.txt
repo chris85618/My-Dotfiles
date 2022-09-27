@@ -23,6 +23,7 @@ fcitx5-qt
 figlet
 firefox
 fzf
+gnome-browser-connector
 gsfonts
 inetutils
 iputils
