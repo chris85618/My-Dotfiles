@@ -17,6 +17,9 @@ diffutils
 dnsutils
 docker
 docker-compose
+fcitx5-chewing
+fcitx5-gtk
+fcitx5-qt
 figlet
 firefox
 fzf

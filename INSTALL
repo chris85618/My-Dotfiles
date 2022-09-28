@@ -45,3 +45,6 @@ unset link_dirname
 unset linkpath
 unset DOTFILES_DIRNAME
 unset DOTFILES_PATH
+
+read -p '''Please follow this guide to add lines into /etc/environment: https://wiki.archlinux.org/title/Fcitx5_(简体中文)#使用
+'''
