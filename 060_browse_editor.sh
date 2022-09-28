@@ -1,7 +1,7 @@
 #!/bin/bash
 # Editor
 # neovim as default
-export EDITOR=$(which code || echo 'vi')
+export EDITOR=$(which code 2>/dev/null || echo 'vi')
 
 alias edit='${EDITOR}'
 alias editor='${EDITOR}'
