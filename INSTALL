@@ -20,9 +20,13 @@ DOTFILES_PATH=~/${DOTFILES_DIRNAME}
 # Clone the dotfiles into ${DOTFILES_PATH}
 if [ ! -d ${DOTFILES_PATH} ]
 then
-    git clone -- https://github.com/chris85618/My-Dotfile.git ${DOTFILES_PATH}
+    git clone -- ssh://chris85618@chris85618.diskstation.me:29998/chris85618/Dotfiles.git ${DOTFILES_PATH}
 fi
-cat ${DOTFILES_PATH}/pacman_requirements.txt | yay -S --needed --noconfirm -
+
+read -p '''Please enable multilib first, and then just click the Enter key once: https://wiki.archlinux.org/title/Official_repositories#multilib
+'''
+
+cat ${DOTFILES_PATH}/pacman_requirements.txt | yay -Syy --needed --noconfirm -
 
 # Enable the dotfile@home
 link_dirname="${DOTFILES_PATH}/configs/home"
@@ -41,6 +45,3 @@ unset link_dirname
 unset linkpath
 unset DOTFILES_DIRNAME
 unset DOTFILES_PATH
-
-# Start 'PlantUML' server
-docker run -d --restart=always --p 8080:8080 plantuml/plantuml-server
