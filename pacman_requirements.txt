@@ -44,6 +44,7 @@ sudo
 system-config-printer
 systemd
 traceroute
+tree
 udev
 unzip
 w3m
