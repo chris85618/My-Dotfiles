@@ -85,6 +85,9 @@ new_alias gep "grep -rn"
 new_alias grp "grep -rn"
 new_alias p "pwd"
 
+new_alias upper "tr [:lower:] [:upper:]"
+new_alias lower "tr [:upper:] [:lower:]"
+
 new_alias pi "ping"
 
 new_alias py "python3"
@@ -94,6 +97,8 @@ new_alias p2 "python2"
 new_alias py2 "python2"
 
 new_alias sc "python3 -i ~/.setup/chrome_robot.py"
+
+new_alias gsi "python3 /home/chrischen0618/.setup/get_school_info.py"
 
 new_alias mk "make"
 
