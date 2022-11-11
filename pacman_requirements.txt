@@ -12,6 +12,7 @@ code
 coreutils
 cups
 cups-pdf
+dconf-editor
 debtap
 dex
 diffutils
@@ -19,6 +20,7 @@ dnsutils
 docker
 docker-compose
 fcitx5-chewing
+fcitx5-config-qt
 fcitx5-gtk
 fcitx5-qt
 figlet
