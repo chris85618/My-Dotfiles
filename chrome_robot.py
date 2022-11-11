@@ -9,6 +9,7 @@ import base64
 import atexit
 import weakref
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 from selenium.webdriver.remote import webdriver as RemoteWebDriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
