@@ -53,8 +53,8 @@ unzip
 w3m
 which
 whois
+wine
+winetricks
 wqy-microhei
 xdg-utils
 yay
-wine
-winetricks
