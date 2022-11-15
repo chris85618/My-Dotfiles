@@ -24,6 +24,7 @@
 	stl = stash list
 	amend = commit --amend
 	ame = commit --amend
+	overwrite = commit --amend --no-verify --no-edit
 	r = reset
 	rest = reset
 	undocommit = reset HEAD~
