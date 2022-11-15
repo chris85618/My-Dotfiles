@@ -81,6 +81,8 @@ new_alias gra "grep -rn"
 new_alias gerp "grep"
 new_alias grpe "grep"
 new_alias gpre "grep"
+new_alias gep "grep -rn"
+new_alias grp "grep -rn"
 new_alias p "pwd"
 
 new_alias pi "ping"
