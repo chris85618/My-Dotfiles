@@ -18,4 +18,4 @@ function note() {
     fi
     cat ${NOTE} | sed -e "s/\${RAND_MAC}/$(rand-mac)/g" -e "s:\${MINE}:${my_ip}:g"
 }
-alias editnote="${EDITOR} ${NOTE}"
+alias editnote='${EDITOR} ${NOTE}'

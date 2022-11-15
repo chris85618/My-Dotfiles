@@ -9,4 +9,4 @@ fi
 echo
 cat ${todo}
 
-alias edittodo="${EDITOR} ${todo}"
+alias edittodo='${EDITOR} ${todo}'
