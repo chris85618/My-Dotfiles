@@ -3,7 +3,8 @@
 PROMPT_DIRTRIM=10
 
 # Command that Bash executes just before displaying a prompt
-export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND; }set_prompts"
+OLD_PROMPT_COMMAND="${PROMPT_COMMAND}"
+export PROMPT_COMMAND="set_prompts"
 
 if [[ -n "$ZSH_VERSION" ]]; then  # quit now if in zsh
     return 1 2> /dev/null || exit 1;
@@ -25,6 +26,8 @@ set_prompts() {
           purple="" red="" reset="" white="" yellow=""
 
     local dateCmd=""
+
+    ${OLD_PROMPT_COMMAND:+$OLD_PROMPT_COMMAND; }
 
     if [ -x /usr/bin/tput ] && tput setaf 1 &> /dev/null; then
 
