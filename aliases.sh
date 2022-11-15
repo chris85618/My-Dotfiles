@@ -1,5 +1,6 @@
 #!/bin/bash
 
+source /etc/bash_completion
 function new_alias() {
     alias_name=$1
     real_command=$2
