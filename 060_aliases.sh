@@ -98,10 +98,10 @@ new_alias cp "cp -i"                                                # Confirm be
 new_alias df 'df -h'                                                # Human-readable sizes
 new_alias free 'free -m'                                            # Show sizes in MB
 
-new_alias ls "ls -F --color=always"
+new_alias ls "ls --file-type --color=always"
 
-new_alias ll "ls -alF --color=always"
-new_alias l "ls --color=always"
+new_alias ll "ls -al --file-type --color=always"
+new_alias l "ls --file-type --color=always"
 
 new_alias c "cd"
 new_alias cds "cd"
@@ -130,7 +130,7 @@ new_alias hosts 'sudo $EDITOR /etc/hosts'   # yes I occasionally 127.0.0.1 twitt
 # touch
 new_alias t "touch"
 
-# ls options: A = include hidden (but not . or ..), F = put `/` after folders, h = byte unit suffixes
+# ls options: A = include hidden (but not . or ..), --file-type = put `/` after folders, h = byte unit suffixes
 new_alias lsd 'ls -l | grep "^d"' # only directories
 #    `la` defined in .functions
 ###
