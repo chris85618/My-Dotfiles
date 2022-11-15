@@ -120,3 +120,5 @@
 	showPatch = true
 [log]
 	date = relative
+[rerere]
+	enabled = false
