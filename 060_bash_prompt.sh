@@ -2,6 +2,9 @@
 # Automatically trim long paths in the prompt (requires Bash 4.x)
 PROMPT_DIRTRIM=10
 
+# Command that Bash executes just before displaying a prompt
+export PROMPT_COMMAND=set_prompts
+
 if [[ -n "$ZSH_VERSION" ]]; then  # quit now if in zsh
     return 1 2> /dev/null || exit 1;
 fi;
@@ -15,6 +18,8 @@ fi
 
 
 set_prompts() {
+    # Capture exit code of last command
+    local exit_code=$?
 
     local black="" blue="" bold="" cyan="" green="" orange="" \
           purple="" red="" reset="" white="" yellow=""
@@ -133,7 +138,12 @@ set_prompts() {
     # | Prompt string                                                  |
     # ------------------------------------------------------------------
 
-    PS1="\[$red\]\[$bold\]\$(date +\"%Y-%m-%d(%a) %H:%M:%S\")"
+    if [ "${exit_code}" -ne 0 ]; then
+        PS1="\[$reset\]\[$orange\]\[$bold\]${exit_code}${reset}||"
+    else
+        PS1="\[$reset\]${exit_code}${black}|"
+    fi
+    PS1+="\[$red\]\[$bold\]\$(date +\"%Y-%m-%d(%a) %H:%M:%S\")"
     PS1+="\[$reset\]:" # terminal title (set to the current working directory)
     PS1+="$(usernamehost)"                              # username at host
     PS1+="\[$blue\]\w"                                     # working directory
@@ -168,7 +178,5 @@ set_prompts() {
 
 }
 
-
-
-set_prompts
-unset set_prompts
+#set_prompts
+#unset set_prompts
