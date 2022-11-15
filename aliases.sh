@@ -6,8 +6,12 @@ function new_alias() {
     src_cmdname=${real_command}
 
     alias "${alias_name}"="${real_command}"
+
+    # Load all the complete commands
+    _completion_loader "${src_cmdname}" 1>/dev/null 2>/dev/null
+    # Check those commands can be auto completed
     if complete -p ${src_cmdname} 1>/dev/null 2>/dev/null; then
-        _completion_loader ${src_cmdname}
+        # Complete them
         complete -o bashdefault -o default -o nospace -F _${src_cmdname} ${alias_name}
     fi
 }
