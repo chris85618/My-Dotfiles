@@ -33,6 +33,7 @@ iputils
 llvm
 nano
 nano-syntax-highlighting-git
+neofetch
 net-tools
 python
 python-pillow
