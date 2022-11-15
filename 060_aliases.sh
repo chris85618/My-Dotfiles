@@ -119,6 +119,8 @@ new_alias mv 'mv -v'
 new_alias rm 'rm -i -v'
 new_alias cp 'cp -v'
 
+new_alias e 'echo'
+
 new_alias chmox 'chmod -x'
 
 new_alias where which # sometimes i forget

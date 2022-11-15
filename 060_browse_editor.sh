@@ -3,7 +3,8 @@
 # neovim as default
 export EDITOR=$(which code || echo 'vi')
 
-alias e=${EDITOR}
+alias edit='${EDITOR}'
+alias editor='${EDITOR}'
 
 alias code="path-alias code"
 alias co="code"
