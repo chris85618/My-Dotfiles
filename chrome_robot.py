@@ -23,6 +23,9 @@ class MySelenium(RemoteWebDriver.WebDriver):
         self._finalizer = weakref.finalize(self, self.quit)
         super().__init__(*args, **kwargs)
 
+    def shadow_root(self, element):
+        return self.execute_script('return arguments[0].shadowRoot', element)
+
     def screenshot_all(self, filename=DEFAULT_SCREENSHOT_TARGET):
         total_width = self.execute_script(
             "return document.documentElement.scrollWidth")
@@ -81,8 +84,11 @@ class Chromedriver(webdriver.Chrome):
         super().__init__(*args, options=options, **kwargs)
         atexit.register(self.quit)
 
+    def shadow_root(self, element):
+        return MySelenium.shadow_root(self, element)
+
     def screenshot_all(self, filename=DEFAULT_SCREENSHOT_TARGET):
-        MySelenium.screenshot_all(self, filename)
+        return MySelenium.screenshot_all(self, filename)
 
 
 def open_webs(*sites):
