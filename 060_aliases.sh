@@ -80,6 +80,8 @@ new_alias gerp "grep"
 new_alias grpe "grep"
 new_alias p "pwd"
 
+new_alias pi "ping"
+
 new_alias py "python3"
 new_alias p3 "python3"
 new_alias py3 "python3"
