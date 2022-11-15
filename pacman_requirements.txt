@@ -1,6 +1,7 @@
 autojump-git
 base
 base-devel
+bash-completion
 chromedriver
 docker
 docker-compose
