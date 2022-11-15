@@ -164,6 +164,11 @@ new_alias vim "nvim"
 new_alias n "nano"
 new_alias ungz "gunzip -k"
 
+new_alias dk "docker"
+new_alias dkr "docker run"
+new_alias docker_run_temporaroly "docker run -it --rm"
+new_alias dkrt docker_run_temporaroly
+
 # Create a new directory and enter it
 function md() {
 	mkdir -p "$@" && cd "$@"
