@@ -1,8 +1,10 @@
 [core]
 	editor = vim
 [alias]
+	regen = !git show --format='%s%n%n%b' -q | grep -v '^Change-Id: [0-9a-zA-Z]*$' | git commit --amend -F-
 	stat = !git --no-pager diff --stat
 	unstage = reset HEAD --
+	newdir = !"for i in `seq 1 9`; do [ ! -d ${GIT_PREFIX:-.}/../$i ] && mkdir -p ${GIT_PREFIX:-.}/../$i && git clone -- ${GIT_PREFIX:-.} ${GIT_PREFIX:-.}/../${i} && cd ${GIT_PREFIX:-.}/../${i} && break; done"
 	a = add
 	br = branch -vv -a
 	db = branch -d
