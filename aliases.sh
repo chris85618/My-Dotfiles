@@ -62,6 +62,9 @@ function path-alias() {
     fi
 }
 
+# Don’t clear the screen after quitting a manual page
+export MANPAGER="less -X"
+
 new_alias cl "clear"
 
 new_alias sd "sudo "
