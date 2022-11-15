@@ -55,7 +55,8 @@ export MANPAGER="less -X"
 
 new_alias makeflow "make -Bnd | make2graph | dot -Tpng -o out.png"
 
-alias hex="python3 $HOME/.setup/to_hex.py"
+alias hex="tohex"
+alias text="totext"
 
 alias -- -='cd -'
 new_alias cl "clear; clear"
