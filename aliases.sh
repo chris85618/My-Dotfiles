@@ -1,4 +1,6 @@
 #!/bin/bash
+
+
 function keep-try() {
     counter=1
     while : ; do
@@ -58,6 +60,7 @@ alias d="diff"
 
 alias ct="cat"
 alias le="less"
+alias less="less -r"
 alias s="sed"
 alias gr="grep"
 alias gra="grep -rn"
