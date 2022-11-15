@@ -11,9 +11,10 @@ function new_alias() {
     # Load all the complete commands
     _completion_loader "${src_cmdname}" 1>/dev/null 2>/dev/null
     # Check those commands can be auto completed
-    if complete -p ${src_cmdname} 1>/dev/null 2>/dev/null; then
+    complete_cmd="$(complete -p ${src_cmdname} 2>/dev/null)"
+    if [ $? -eq 0 ] ; then
         # Complete them
-        complete -o bashdefault -o default -o nospace -F _${src_cmdname} ${alias_name}
+        $(echo "${complete_cmd}" | sed "s/${src_cmdname}[ \t\r]*$/${alias_name}/g")
     fi
 }
 
