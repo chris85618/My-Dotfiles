@@ -37,14 +37,14 @@
 :inoremap {<CR> {<CR>}<Esc>ko
 :inoremap {{ {}<ESC>i
 :noremap <C-S> <Esc>:w<CR>
-:inoremap <C-S> <Esc>:w<CR>i
+:inoremap <C-S> <Esc>:w<CR><Right>i
 :noremap <C-W><C-W><C-W> <Esc>:q!<CR>
 :noremap! <C-W><C-W><C-W> <Esc>:q!<CR>
 :noremap <C-Q> <Esc>:q<CR>
 :noremap! <C-Q> <Esc>:q<CR>
 :inoremap <C-D> <Esc>ddi
-:inoremap <C-BS> <Esc>dbi
-:inoremap <C-Del> <Esc>dwi<Right>
+:inoremap <C-BS> <Right><Esc>dbi  
+:inoremap <C-Del> <Right><Esc>dwi
 :noremap <C-F> <Esc>/
 :noremap! <C-F> <Esc>/
 :noremap <C-T> <Esc>:
@@ -55,12 +55,12 @@
 :noremap! <C-Left> <Left><Left><Left><Left>
 :noremap <C-Right> <Right><Right><Right><Right>
 :noremap! <C-Right> <Right><Right><Right><Right>
-:noremap <C-Down> <Esc><C-D>
-:noremap! <C-Down> <Esc><C-D>i
-:noremap <C-Up> <Esc><C-U>
-:noremap! <C-Up> <Esc><C-U>i
+:noremap <C-Down> <Down><Down><Down><Down>
+:noremap! <C-Down> <Down><Down><Down><Down>
+:noremap <C-Up> <Up><Up><Up><Up>
+:noremap! <C-Up> <Up><Up><Up><Up>
 :inoremap <C-C> <expr> <Esc>v . input()
-:inoremap <C-V> <Esc><Right>Pi<Right>
+:inoremap <C-V> <Right><Esc>P<Right>i
 :syntax enable
 :startinsert
 :colorscheme ron
