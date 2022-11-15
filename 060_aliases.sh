@@ -52,6 +52,8 @@ function path-alias() {
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X"
 
+alias hex="python3 $HOME/.setup/to_hex.py"
+
 new_alias cl "clear"
 
 new_alias sd "sudo "
