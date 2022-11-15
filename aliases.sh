@@ -70,6 +70,8 @@ alias py3="python3"
 alias p2="python2"
 alias py2="python2"
 
+alias sc="python3 -i ~/.setup/chrome_automation.py"
+
 alias ifc="ifconfig"
 
 alias m="mv"
