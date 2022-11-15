@@ -52,15 +52,22 @@ function path-alias() {
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X"
 
+new_alias makeflow "make -Bnd | make2graph | dot -Tpng -o out.png"
+
 alias hex="python3 $HOME/.setup/to_hex.py"
 
 alias -- -='cd -'
 new_alias cl "clear"
+new_alias clera "cl"
+
+new_alias restorecprm "alias cp=cp; alias rm=rm"
 
 new_alias sd "sudo "
 new_alias sudo "sudo "
 
 new_alias d "diff"
+
+new_alias ecjo "echo"
 
 new_alias ct "cat"
 new_alias le "less"
@@ -70,6 +77,7 @@ new_alias ss "source"
 new_alias gr "grep"
 new_alias gra "grep -rn"
 new_alias gerp "grep"
+new_alias grpe "grep"
 new_alias p "pwd"
 
 new_alias py "python3"
@@ -96,6 +104,7 @@ new_alias ll "ls -alF --color=always"
 new_alias l "ls --color=always"
 
 new_alias c "cd"
+new_alias cds "cd"
 new_alias .. "cd .."
 new_alias cd.. "cd .."
 new_alias ... "cd ../.."
