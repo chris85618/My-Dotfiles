@@ -30,9 +30,10 @@
 	undocommit = reset HEAD~
 	hreset = reset --hard
 	co = checkout
-	df = !git --no-pager diff --no-pager --color --color-words --abbrev
-	l = !git --no-pager log --color --graph --all --pretty=format:'%Cred%h%C(reset) %C(bold)%s%C(reset) %C(cyan)by%Cblue %an %Creset%C(cyan)in %Creset%Cgreen%cr%C(reset)%C(yellow)%d%Creset'  --abbrev-commit --
-	lg = !git --no-pager log --color --graph --all --pretty=format:'%Cred%h%C(reset) %C(bold)%s%C(reset) %C(cyan)by%Cblue %an %Creset%C(cyan)in %Creset%Cgreen%cr%C(reset)%C(yellow)%d%Creset'  --abbrev-commit --
+	df = !git diff --color --color-words --abbrev
+	l = !git log -$(( $(tput lines) / 2 )) --color --graph --all --pretty=format:'%Cred%h%C(reset) %C(bold)%s%C(reset) %C(cyan)by%Cblue %an %Creset%C(cyan)in %Creset%Cgreen%cr%C(reset)%C(yellow)%d%Creset'  --abbrev-commit --
+	ll = !git log --color --graph --all --pretty=format:'%Cred%h%C(reset) %C(bold)%s%C(reset) %C(cyan)by%Cblue %an %Creset%C(cyan)in %Creset%Cgreen%cr%C(reset)%C(yellow)%d%Creset'  --abbrev-commit --
+	lg = !git log --color --graph --all --pretty=format:'%Cred%h%C(reset) %C(bold)%s%C(reset) %C(cyan)by%Cblue %an %Creset%C(cyan)in %Creset%Cgreen%cr%C(reset)%C(yellow)%d%Creset'  --abbrev-commit --
 	cherrypick = cherry-pick
 	cherry = cherry-pick
 	cp = cherry-pick
@@ -53,7 +54,7 @@
 	purge = "!f(){ git reset --hard && git clean -fd; }; f"
 	gc = !"git gc --prune --aggressive"
 	# Show the diff between the latest commit and the current state
-	d = !"git diff-index --quiet HEAD -- || git --no-pager diff --patch-with-stat"
+	d = !"git diff-index --quiet HEAD -- || git diff --patch-with-stat"
 	git = !exec git
 [branch]
 	autosetuprebase = always
