@@ -46,6 +46,7 @@ function path-alias() {
         ${1} .
     elif [ $# -gt 1 ]; then
         ${1} ${@:2}
+        # echo ${1} ${@:2}
     fi
 }
 
@@ -78,6 +79,7 @@ new_alias gr "grep"
 new_alias gra "grep -rn"
 new_alias gerp "grep"
 new_alias grpe "grep"
+new_alias gpre "grep"
 new_alias p "pwd"
 
 new_alias pi "ping"
@@ -172,6 +174,8 @@ new_alias dk "docker"
 new_alias dkr "docker run"
 new_alias docker_run_temporaroly "docker run -it --rm"
 new_alias dkrt docker_run_temporaroly
+
+new_alias ntoe note
 
 # Create a new directory and enter it
 function md() {
