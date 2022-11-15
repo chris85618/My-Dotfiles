@@ -138,10 +138,9 @@ set_prompts() {
     # | Prompt string                                                  |
     # ------------------------------------------------------------------
 
+    PS1=""
     if [ "${exit_code}" -ne 0 ]; then
-        PS1="\[$reset\]\[$orange\]\[$bold\]${exit_code}${reset}||"
-    else
-        PS1="\[$reset\]${exit_code}${black}|"
+        PS1+="\[$reset\]\[$orange\]\[$bold\]${exit_code}${black}|"
     fi
     PS1+="\[$red\]\[$bold\]\$(date +\"%Y-%m-%d(%a) %H:%M:%S\")"
     PS1+="\[$reset\]:" # terminal title (set to the current working directory)
