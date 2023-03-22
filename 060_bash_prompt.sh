@@ -27,7 +27,7 @@ set_prompts() {
 
     local dateCmd=""
 
-    ${OLD_PROMPT_COMMAND:+$OLD_PROMPT_COMMAND; }
+    eval ${OLD_PROMPT_COMMAND:+$OLD_PROMPT_COMMAND; }
 
     if [ -x /usr/bin/tput ] && tput setaf 1 &> /dev/null; then
 
