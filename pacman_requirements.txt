@@ -35,6 +35,7 @@ nano
 nano-syntax-highlighting-git
 neofetch
 net-tools
+pacman-cleanup-hook
 python
 python-pillow
 python-pip
