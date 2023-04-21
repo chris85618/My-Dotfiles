@@ -57,5 +57,6 @@ whois
 wine
 winetricks
 wqy-microhei
+xdg-user-dirs
 xdg-utils
 yay
