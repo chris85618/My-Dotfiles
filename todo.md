@@ -6,6 +6,5 @@ Your Todo List:
 [ ] *# Python
 [ ] * Add support for shell alias, "sc" to open website without "http/https" keyword.
 [ ] * Add markdown support to note module & todo module
-[ ] *# Keep the string replace feature
-[ ] *# note.txt -> note.md
-[ ] *# todo.txt -> todo.md
+[ ] *# When show to TODO list and notes, use MarkDown format to display
+[ ] *#* Keep the string replace feature

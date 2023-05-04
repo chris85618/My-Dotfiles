@@ -1,5 +1,5 @@
 #!/bin/bash
-NOTE=$HOME/.setup/note.txt
+NOTE=$HOME/.setup/note.md
 
 if [ ! -f ${NOTE} ]; then
     touch ${NOTE}

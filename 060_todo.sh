@@ -1,6 +1,6 @@
 #!/bin/bash
 
-todo=~/.setup/todo.txt
+todo=~/.setup/todo.md
 
 if [ ! -f ${todo} ]; then
     touch ${todo}
