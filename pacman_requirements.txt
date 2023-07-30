@@ -27,6 +27,7 @@ figlet
 firefox
 fzf
 gnome-browser-connector
+gnome-firmware
 gsfonts
 inetutils
 iputils
