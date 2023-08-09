@@ -13,6 +13,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.remote import webdriver as RemoteWebDriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
 from PIL import Image
 
 
@@ -23,6 +24,7 @@ class MySelenium(RemoteWebDriver.WebDriver):
     def __init__(self, *args, **kwargs):
         self._finalizer = weakref.finalize(self, self.quit)
         super().__init__(*args, **kwargs)
+        self.wait = WebDriverWait(self, 20)
 
     def shadow_root(self, element):
         return self.execute_script('return arguments[0].shadowRoot', element)
@@ -84,6 +86,7 @@ class Chromedriver(webdriver.Chrome):
         options.add_argument('--disable-infobars')
         super().__init__(*args, options=options, **kwargs)
         atexit.register(self.quit)
+        self.wait = WebDriverWait(self, 20)
 
     def shadow_root(self, element):
         return MySelenium.shadow_root(self, element)
