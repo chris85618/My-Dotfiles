@@ -141,7 +141,7 @@ new_alias where which # sometimes i forget
 new_alias hosts 'sudo $EDITOR /etc/hosts'   # yes I occasionally 127.0.0.1 twitter.com ;)
 
 # touch
-new_alias t "touch"
+new_alias t "tree"
 
 # ls options: A = include hidden (but not . or ..), --file-type = put `/` after folders, h = byte unit suffixes
 new_alias lsd 'ls -l | grep "^d"' # only directories
