@@ -1,4 +1,4 @@
-autojump-git
+autojump-rs
 avahi
 base
 base-devel
