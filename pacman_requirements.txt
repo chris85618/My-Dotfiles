@@ -8,7 +8,6 @@ binutils
 chromedriver
 clang
 cling
-code
 coreutils
 cups
 cups-pdf
@@ -52,6 +51,7 @@ traceroute
 tree
 udev
 unzip
+visual-studio-code-bin
 w3m
 which
 whois
