@@ -18,6 +18,7 @@ diffutils
 dnsutils
 docker
 docker-compose
+doxygen
 fcitx5-chewing
 fcitx5-config-qt
 fcitx5-gtk
@@ -27,6 +28,7 @@ firefox
 fzf
 gnome-browser-connector
 gnome-firmware
+graphviz
 gsfonts
 inetutils
 iputils
