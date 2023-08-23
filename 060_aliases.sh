@@ -97,7 +97,7 @@ new_alias p2 "python2"
 new_alias py2 "python2"
 
 new_alias sc "python3 -i ~/.setup/chrome_robot.py"
-new_alias redmine_sc "python3 -i ~/.setup/redmine_automation.py"
+new_alias redmine_sc "python3 -i ~/.setup/redmine_automation.py -i"
 
 new_alias gsi "python3 /home/chrischen0618/.setup/get_school_info.py"
 

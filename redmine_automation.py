@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: UTF-8 -*-
 
-# TODO: 使用argparse讀取所有資訊並讓設定可參數化，以便作到全自動化
-
+import argparse
 import datetime
+import sys
 import time
 from chrome_robot import Chromedriver
 from selenium.webdriver.common.by import By
@@ -15,15 +15,15 @@ class RedmineChromedriver(Chromedriver):
     def fetch_information(self):
         result_dict = {}
         try:
-            default_subtitle = self.wait.until(EC.visibility_of_element_located(
+            default_title = self.wait.until(EC.visibility_of_element_located(
                 (By.XPATH, '//*[@id="fakeDynamicForm"]/div/div[2]/div[1]/div/div/h3'))).text
-            subtitle = input(f"請輸入標題 (e.g. {default_subtitle}): ")
-            if len(subtitle.strip()) == 0:
-                subtitle = default_subtitle
+            title = input(f"請輸入標題 (e.g. {default_title}): ")
+            if len(title.strip()) == 0:
+                title = default_title
         except BaseException:
-            subtitle = input(f"請輸入標題: ")
-        subtitle = subtitle.strip()
-        result_dict['subtitle'] = subtitle
+            title = input(f"請輸入標題: ")
+        title = title.strip()
+        result_dict['title'] = title
 
         try:
             default_priority = self.wait.until(EC.visibility_of_element_located(
@@ -38,7 +38,7 @@ class RedmineChromedriver(Chromedriver):
 
         return result_dict
 
-    def generate_daily_issues(self, parent_issue_url, subtitle, priority, from_date, to_date, tracker, estimated_hours):
+    def generate_daily_issues(self, parent_issue_url, title, priority, from_date, to_date, tracker, estimated_hours, **kwargs):
         self.get(parent_issue_url)
         time.sleep(0.3)
         self.wait.until(EC.element_to_be_clickable
@@ -57,7 +57,7 @@ class RedmineChromedriver(Chromedriver):
 
                 # subject
                 self.wait.until(EC.element_to_be_clickable((By.ID, 'issue_subject'))).send_keys(
-                    f"{subtitle} - {current_date.strftime('%Y-%m-%d')}")
+                    f"{title} - {current_date.strftime('%Y-%m-%d')}")
                 time.sleep(0.2)
 
                 # (TODO) Description
@@ -105,9 +105,29 @@ class RedmineChromedriver(Chromedriver):
 
 
 if __name__ == "__main__":
-    browser = RedmineChromedriver()
-    browser.get('https://chris85618.diskstation.me:61443/')
-    print("請登入Redmine")
+    if "-i" in sys.argv or "--interactively" in sys.argv:
+        browser = RedmineChromedriver()
+        browser.get('https://chris85618.diskstation.me:61443/')
+        print("請登入Redmine")
+    else:
+        parser = argparse.ArgumentParser(usage="create repeated issues for continuous days.")
+        parser.add_argument("-i", "--interactively", dest="interactively", help="Open an Python interpreter with interactive \"generate_daily_issues()\".", action='store_true', default=False)
+        parser.add_argument("--parent-issue-url", dest="parent_issue_url", help="the url (containing https) of the target new issues' parent issue.", required=True)
+        parser.add_argument("--title", dest="title", help="the title of the new issues without date", required=True)
+        parser.add_argument("--priority", dest="priority", help="priority", required=True)
+        parser.add_argument("--from-date", dest="from_date", help="the new daily issue beginning from that date", required=True)
+        parser.add_argument("--to-date", dest="to_date", help="the new daily issue ending until that date", required=True)
+        parser.add_argument("--tracker", dest="tracker", help="the traker tag", default="Task")
+        parser.add_argument("--estimated-hours", dest="estimated_hours", help="the estimated hours to finish one of the new issues", required=True)
+        args = parser.parse_args(sys.argv)
+
+        browser = RedmineChromedriver()
+        browser.get('https://chris85618.diskstation.me:61443/')
+        print("請登入Redmine")
+        input()
+
+        parent_issue_info = args.__dict__
+        browser.generate_daily_issues(**parent_issue_info)
 else:
     browser = None
 
