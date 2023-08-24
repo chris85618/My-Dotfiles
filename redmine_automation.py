@@ -47,7 +47,7 @@ class RedmineChromedriver(Chromedriver):
         current_date=datetime_to_struct(from_date)
         to_date_struct=datetime_to_struct(to_date)
 
-        while current_date < to_date_struct:
+        while current_date <= to_date_struct:
             try:
                 self.wait.until(EC.element_to_be_clickable((By.ID, 'issue_tracker_id')))
                 time.sleep(0.3)
@@ -159,7 +159,7 @@ def generate_daily_issues(browser=browser):
     to_date += datetime.timedelta(days=1)
     parent_issue_info['to_date'] = datetime.strftime(to_date, "%Y-%m-%d")
 
-    assert from_date < to_date
+    assert from_date <= to_date
 
     default_tracker = "Task"
     tracker = input(f"請輸入追蹤標籤(e.g. {default_tracker}): ")
