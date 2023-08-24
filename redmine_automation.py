@@ -15,15 +15,15 @@ class RedmineChromedriver(Chromedriver):
     def fetch_information(self):
         result_dict = {}
         try:
-            default_title = self.wait.until(EC.visibility_of_element_located(
+            default_subject = self.wait.until(EC.visibility_of_element_located(
                 (By.XPATH, '//*[@id="fakeDynamicForm"]/div/div[2]/div[1]/div/div/h3'))).text
-            title = input(f"請輸入標題 (e.g. {default_title}): ")
-            if len(title.strip()) == 0:
-                title = default_title
+            subject = input(f"請輸入標題 (e.g. {default_subject}): ")
+            if len(subject.strip()) == 0:
+                subject = default_subject
         except BaseException:
-            title = input(f"請輸入標題: ")
-        title = title.strip()
-        result_dict['title'] = title
+            subject = input(f"請輸入標題: ")
+        subject = subject.strip()
+        result_dict['subject'] = subject
 
         try:
             default_priority = self.wait.until(EC.visibility_of_element_located(
@@ -38,33 +38,38 @@ class RedmineChromedriver(Chromedriver):
 
         return result_dict
 
-    def generate_daily_issues(self, parent_issue_url, title, priority, from_date, to_date, tracker, estimated_hours, **kwargs):
+    def generate_daily_issues(self, parent_issue_url, subject, priority, from_date, to_date, tracker, estimated_hours, **kwargs):
         self.get(parent_issue_url)
         time.sleep(0.3)
         self.wait.until(EC.element_to_be_clickable
                 ((By.XPATH, '//*[@id="issue_tree"]/div/a'))).click()
 
-        current_date=from_date
+        current_date=datetime_to_struct(from_date)
+        to_date_struct=datetime_to_struct(to_date)
 
-        while current_date < to_date:
+        while current_date < to_date_struct:
             try:
                 self.wait.until(EC.element_to_be_clickable((By.ID, 'issue_tracker_id')))
                 time.sleep(0.3)
 
                 # Issue tracker ID
+                print(tracker)
                 self.wait.until(EC.element_to_be_clickable((By.ID, 'issue_tracker_id'))).send_keys(tracker)
                 time.sleep(0.2)
 
                 # subject
-                self.wait.until(EC.element_to_be_clickable((By.ID, 'issue_subject'))).send_keys(
-                    f"{title} - {current_date.strftime('%Y-%m-%d')}")
+                this_subject = f"{subject} - {current_date.strftime('%Y-%m-%d')}"
+                print(this_subject)
+                self.wait.until(EC.element_to_be_clickable((By.ID, 'issue_subject'))).send_keys(this_subject)
                 time.sleep(0.2)
 
                 # (TODO) Description
+                # print()
                 # self.wait.until(EC.element_to_be_clickable((By.ID, 'issue_description'))).send_keys()
                 # time.sleep(0.2)
 
                 # priority
+                print(priority)
                 self.wait.until(EC.element_to_be_clickable((By.ID, 'issue_priority_id'))).send_keys(priority)
                 time.sleep(0.2)
 
@@ -87,6 +92,7 @@ class RedmineChromedriver(Chromedriver):
                 time.sleep(0.2)
 
                 # estimated hours
+                print(estimated_hours)
                 self.wait.until(EC.element_to_be_clickable((By.ID, 'issue_estimated_hours'))).send_keys(f"{estimated_hours}")
                 time.sleep(0.2)
 
@@ -103,6 +109,9 @@ class RedmineChromedriver(Chromedriver):
                 self.wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="issue_tree"]/div/a'))).click()
                 continue
 
+def datetime_to_struct(datetime_str):
+    return datetime.datetime.strptime(datetime_str.strip(), "%Y-%m-%d")
+
 
 if __name__ == "__main__":
     if "-i" in sys.argv or "--interactively" in sys.argv:
@@ -113,13 +122,13 @@ if __name__ == "__main__":
         parser = argparse.ArgumentParser(usage="create repeated issues for continuous days.")
         parser.add_argument("-i", "--interactively", dest="interactively", help="Open an Python interpreter with interactive \"generate_daily_issues()\".", action='store_true', default=False)
         parser.add_argument("--parent-issue-url", dest="parent_issue_url", help="the url (containing https) of the target new issues' parent issue.", required=True)
-        parser.add_argument("--title", dest="title", help="the title of the new issues without date", required=True)
+        parser.add_argument("--subject", dest="subject", help="the subject of the new issues without date", required=True)
         parser.add_argument("--priority", dest="priority", help="priority", required=True)
         parser.add_argument("--from-date", dest="from_date", help="the new daily issue beginning from that date", required=True)
         parser.add_argument("--to-date", dest="to_date", help="the new daily issue ending until that date", required=True)
         parser.add_argument("--tracker", dest="tracker", help="the traker tag", default="Task")
         parser.add_argument("--estimated-hours", dest="estimated_hours", help="the estimated hours to finish one of the new issues", required=True)
-        args = parser.parse_args(sys.argv)
+        args = parser.parse_args(sys.argv[1:])
 
         browser = RedmineChromedriver()
         browser.get('https://chris85618.diskstation.me:61443/')
@@ -143,13 +152,12 @@ def generate_daily_issues(browser=browser):
     parent_issue_info.update(browser.fetch_information())
 
     from_date_input = input(f"From date (e.g. {datetime.date.today()}): ")
-    from_date = datetime.datetime.strptime(from_date_input.strip(), "%Y-%m-%d")
-    parent_issue_info['from_date'] = from_date
+    parent_issue_info['from_date'] = from_date_input.strip(), "%Y-%m-%d"
 
     to_date_input = input(f"To date (e.g. {datetime.date.today()}): ")
     to_date = datetime.datetime.strptime(to_date_input.strip(), "%Y-%m-%d")
     to_date += datetime.timedelta(days=1)
-    parent_issue_info['to_date'] = to_date
+    parent_issue_info['to_date'] = datetime.strftime(to_date, "%Y-%m-%d")
 
     assert from_date < to_date
 
