@@ -8,3 +8,9 @@ Your Todo List:
 [ ] * Add markdown support to note module & todo module
 [ ] *# When show to TODO list and notes, use MarkDown format to display
 [ ] *#* Keep the string replace feature
+
+Use the following command to unlink from my home:
+    sudo wg-quick down wg0
+
+Use the following command to link to my home:
+    sudo wg-quick up wg0
