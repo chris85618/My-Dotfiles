@@ -7,7 +7,6 @@ bash-completion
 binutils
 chromedriver
 clang
-cling
 coreutils
 cups
 cups-pdf
