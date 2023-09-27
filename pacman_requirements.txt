@@ -1,6 +1,7 @@
 arch-install-scripts
 autojump-rs
 avahi
+baobab
 base
 base-devel
 bash
@@ -33,11 +34,14 @@ fcitx5-configtool
 fcitx5-gtk
 fcitx5-qt
 figlet
+file-roller
 firefox
 fzf
 gdm
+gedit
 git
 gnome-backgrounds
+gnome-boxes
 gnome-browser-connector
 gnome-calculator
 gnome-calendar
@@ -63,7 +67,9 @@ gnome-settings-daemon
 gnome-shell
 gnome-shell-extensions
 gnome-software
+gnome-sound-recorder
 gnome-system-monitor
+gnome-terminal
 gnome-text-editor
 gnome-tweaks
 gnome-user-docs
@@ -75,6 +81,7 @@ gptfdisk
 graphviz
 grilo-plugins
 grub
+grub-btrfs
 gsfonts
 gvfs
 gvfs-afc
@@ -88,6 +95,7 @@ inetutils
 intel-ucode
 iputils
 kolourpaint
+less
 linux
 linux-firmware
 llvm
@@ -101,6 +109,7 @@ noto-fonts
 nss-mdns
 ntfsprogs-ntfs3
 openresolv
+orca
 pacman-cleanup-hook
 python
 python-pillow
@@ -132,6 +141,7 @@ udev
 unzip
 visual-studio-code-bin
 w3m
+wget
 which
 whois
 wine
@@ -139,5 +149,6 @@ winetricks
 wireguard-tools
 wqy-microhei
 xdg-user-dirs
+xdg-user-dirs-gtk
 xdg-utils
 yay
