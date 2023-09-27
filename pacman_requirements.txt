@@ -21,6 +21,7 @@ diffutils
 dnsutils
 docker
 docker-compose
+dosfstools
 doxygen
 efibootmgr
 eog
@@ -70,6 +71,7 @@ gnome-user-share
 gnome-weather
 gnu-free-fonts
 google-chrome
+gptfdisk
 graphviz
 grilo-plugins
 grub
