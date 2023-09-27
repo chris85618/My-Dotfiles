@@ -113,6 +113,7 @@ ntfsprogs-ntfs3
 openresolv
 orca
 pacman-cleanup-hook
+piper
 python
 python-conda
 python-croniter
@@ -127,6 +128,7 @@ safeeyes
 screen
 shared-mime-info-gnome
 simple-scan
+solaar
 sshpass
 sudo
 sushi
