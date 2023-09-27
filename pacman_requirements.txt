@@ -25,7 +25,7 @@ doxygen
 efibootmgr
 eog
 evince
-exfat-utils
+exfatprogs
 fcitx5-chewing
 fcitx5-config-qt
 fcitx5-configtool
