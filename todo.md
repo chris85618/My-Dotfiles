@@ -10,7 +10,7 @@ Your Todo List:
 [ ] *#* Keep the string replace feature
 
 Use the following command to unlink from my home:
-    sudo wg-quick down wg0
+    sudo wg-quick down wg1
 
 Use the following command to link to my home:
-    sudo wg-quick up wg0
+    sudo wg-quick up wg1
