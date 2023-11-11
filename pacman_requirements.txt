@@ -66,6 +66,7 @@ gnome-session
 gnome-settings-daemon
 gnome-shell
 gnome-shell-extensions
+gnome-shell-extension-kimpanel-git
 gnome-software
 gnome-sound-recorder
 gnome-system-monitor
