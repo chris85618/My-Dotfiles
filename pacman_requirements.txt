@@ -121,6 +121,7 @@ rpmextract
 rsync
 rygel
 screen
+shared-mime-info-gnome
 simple-scan
 sshpass
 sudo
