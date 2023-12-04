@@ -139,6 +139,7 @@ ttf-dejavu
 ttf-droid
 ttf-ibm-plex
 ttf-liberation
+ttf-ms-fonts
 udev
 unzip
 visual-studio-code-bin
