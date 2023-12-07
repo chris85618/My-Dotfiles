@@ -113,6 +113,7 @@ openresolv
 orca
 pacman-cleanup-hook
 python
+python-conda
 python-pillow
 python-pip
 python-requests
