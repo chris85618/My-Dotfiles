@@ -13,6 +13,7 @@ cheese
 chromedriver
 clang
 coreutils
+cronie
 cups
 cups-pdf
 dconf-editor
