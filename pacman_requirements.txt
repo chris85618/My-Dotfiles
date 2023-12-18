@@ -115,6 +115,7 @@ orca
 pacman-cleanup-hook
 python
 python-conda
+python-croniter
 python-pillow
 python-pip
 python-requests
@@ -122,6 +123,7 @@ python-selenium
 rpmextract
 rsync
 rygel
+safeeyes
 screen
 shared-mime-info-gnome
 simple-scan
@@ -152,6 +154,7 @@ whois
 wine
 winetricks
 wireguard-tools
+wlrctl
 wqy-microhei
 xdg-user-dirs
 xdg-user-dirs-gtk
