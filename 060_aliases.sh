@@ -60,6 +60,7 @@ alias text="totext"
 
 alias -- -='cd -'
 new_alias cl "clear; clear"
+new_alias lc "clear; clear"
 new_alias clera "cl"
 
 new_alias restorecprm "alias cp=cp; alias rm=rm"
