@@ -8,10 +8,12 @@ import time
 import base64
 import atexit
 import weakref
+import shutil
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote import webdriver as RemoteWebDriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from PIL import Image
@@ -79,12 +81,12 @@ RemoteWebDriver.WebDriver = MySelenium
 
 
 class Chromedriver(webdriver.Chrome):
-    def __init__(self, *args, options=Options(), **kwargs):
+    def __init__(self, *args, options=Options(), service=Service(shutil.which("chromedriver")), **kwargs):
         options.add_argument('--no-sandbox')
         options.add_argument('--ignore-certificate-errors')
         options.add_argument('--start-maximized')
         options.add_argument('--disable-infobars')
-        super().__init__(*args, options=options, **kwargs)
+        super().__init__(*args, options=options, service=service, **kwargs)
         atexit.register(self.quit)
         self.wait = WebDriverWait(self, 20)
 
