@@ -6,7 +6,7 @@ export EDITOR=$(which code 2>/dev/null || echo 'vi')
 alias edit='${EDITOR}'
 alias editor='${EDITOR}'
 
-alias code="path-alias code"
+alias code="path-alias code --no-sandbox"
 alias co="code"
 
 
