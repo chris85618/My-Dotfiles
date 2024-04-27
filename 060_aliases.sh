@@ -183,6 +183,7 @@ new_alias v "nvim"
 new_alias vi "nvim"
 new_alias vim "nvim"
 new_alias n "nano"
+new_alias code. "code ."
 new_alias ungz "gunzip -k"
 
 new_alias dk "docker"
