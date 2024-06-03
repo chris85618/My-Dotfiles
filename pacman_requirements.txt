@@ -160,3 +160,10 @@ xdg-user-dirs
 xdg-user-dirs-gtk
 xdg-utils
 yay
+# decompile
+radare2
+iaito
+# pwd
+python-pwntools
+# web
+burpsuite
