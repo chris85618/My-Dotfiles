@@ -160,6 +160,7 @@ xdg-user-dirs
 xdg-user-dirs-gtk
 xdg-utils
 yay
+gef
 # decompile
 radare2
 iaito
