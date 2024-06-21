@@ -81,12 +81,12 @@ RemoteWebDriver.WebDriver = MySelenium
 
 
 class Chromedriver(webdriver.Chrome):
-    def __init__(self, *args, options=Options(), service=Service(shutil.which("chromedriver")), **kwargs):
+    def __init__(self, *args, options=Options(), **kwargs):
         options.add_argument('--no-sandbox')
         options.add_argument('--ignore-certificate-errors')
         options.add_argument('--start-maximized')
         options.add_argument('--disable-infobars')
-        super().__init__(*args, options=options, service=service, **kwargs)
+        super().__init__(*args, options=options, **kwargs)
         atexit.register(self.quit)
         self.wait = WebDriverWait(self, 20)
 
