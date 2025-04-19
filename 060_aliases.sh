@@ -167,6 +167,7 @@ new_alias diskspace_report "df -P -kHl"
 
 # Shortcuts
 new_alias h "history"
+new_alias hist "history"
 new_alias g "git"
 new_alias gs "git status"
 new_alias tk "gitk"
