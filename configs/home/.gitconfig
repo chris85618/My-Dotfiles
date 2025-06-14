@@ -1,5 +1,7 @@
 [core]
 	editor = nano
+	eol = lf
+	autocrlf = input
 [alias]
 	regen = !git show --format='%s%n%n%b' -q | grep -v '^Change-Id: [0-9a-zA-Z]*$' | git commit --amend -F-
 	stat = !git --no-pager diff --stat
