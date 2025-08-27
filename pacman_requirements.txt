@@ -113,6 +113,7 @@ ntfsprogs-ntfs3
 openresolv
 orca
 pacman-cleanup-hook
+plocate
 python
 python-conda
 python-croniter
