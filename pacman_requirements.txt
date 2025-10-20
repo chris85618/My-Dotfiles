@@ -42,6 +42,7 @@ fzf
 gdm
 gedit
 git
+github-cli
 gnome-backgrounds
 gnome-boxes
 gnome-browser-connector
