@@ -77,3 +77,6 @@ set visible-stats on
 set skip-completed-text on
 "\e[3;3~": kill-word
 "\C-h": backward-kill-word
+
+set colored-completion-prefix on
+set colored-stats on
