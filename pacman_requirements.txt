@@ -1,5 +1,4 @@
 arch-install-scripts
-autojump-rs
 avahi
 baobab
 base
