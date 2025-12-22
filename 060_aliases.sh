@@ -194,6 +194,8 @@ new_alias dkrt docker_run_temporaroly
 
 new_alias ntoe note
 
+new_alias linstor 'kubectl exec -n cozy-linstor deploy/linstor-controller -- linstor'
+
 # Create a new directory and enter it
 function md() {
 	mkdir -p "$@" && cd "$@"
