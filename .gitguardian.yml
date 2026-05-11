@@ -1,0 +1,6 @@
+version: 2
+
+secret:
+  ignored-matches:
+    - name: "OpenBMC Default Password for Development"
+      match: "0penBmc"
