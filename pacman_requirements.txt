@@ -113,6 +113,7 @@ noto-fonts
 npm
 nss-mdns
 ntfsprogs-ntfs3
+opencode
 openresolv
 orca
 pacman-cleanup-hook
@@ -172,3 +173,24 @@ iaito
 python-pwntools
 # web
 burpsuite
+# language server
+ccls
+autotools-language-server
+awk-language-server
+cmake-language-server
+codebook-lsp
+dockerfile-language-server
+lemminx
+marksman
+nodejs-compose-language-service
+python-lsp-server
+ruby-sorbet-runtime
+rust-analyzer
+sqls
+systemd-lsp
+texlab
+tombi
+typescript-language-server
+vscode-html-languageserver
+vscode-json-languageserver
+yaml-language-server
