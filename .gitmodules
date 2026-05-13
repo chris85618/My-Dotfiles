@@ -1,0 +1,3 @@
+[submodule "ai_coding"]
+	path = ai_coding
+	url = https://github.com/chris85618/ai-coding-workflow.git

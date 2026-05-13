@@ -108,7 +108,9 @@ nautilus
 neofetch
 net-tools
 networkmanager
+nodejs
 noto-fonts
+npm
 nss-mdns
 ntfsprogs-ntfs3
 openresolv

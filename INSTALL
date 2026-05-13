@@ -20,7 +20,7 @@ DOTFILES_PATH=~/${DOTFILES_DIRNAME}
 # Clone the dotfiles into ${DOTFILES_PATH}
 if [ ! -d ${DOTFILES_PATH} ]
 then
-    git clone -- ssh://chris85618@chris85618.diskstation.me:29998/chris85618/Dotfiles.git ${DOTFILES_PATH}
+    git clone --recursive -- ssh://chris85618@chris85618.diskstation.me:29998/chris85618/Dotfiles.git ${DOTFILES_PATH}
 fi
 
 read -p '''Please enable multilib first, and then just click the Enter key once: https://wiki.archlinux.org/title/Official_repositories#multilib
