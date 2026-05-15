@@ -41,6 +41,7 @@ fzf
 gdm
 gedit
 git
+git-filter-repo
 github-cli
 gnome-backgrounds
 gnome-boxes
